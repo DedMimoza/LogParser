@@ -1,0 +1,34 @@
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.AssemblyReference.cache
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\obj\Debug\Практика_excel.Form1.resources
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\obj\Debug\Практика_excel.Properties.Resources.resources
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.GenerateResource.cache
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.CoreCompileInputs.cache
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\bin\Debug\Практика excel.exe.config
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\bin\Debug\Практика excel.exe
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\bin\Debug\Практика excel.pdb
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\obj\Debug\Практика excel.exe
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\obj\Debug\Практика excel.pdb
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\bin\Debug\ExcelDataReader.dll
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\bin\Debug\ExcelDataReader.pdb
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\bin\Debug\ExcelDataReader.xml
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\Эрчим Иркитов\Desktop\Практика 2курс\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.CopyComplete
+C:\Users\2\Desktop\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.AssemblyReference.cache
+C:\Users\2\Desktop\Практика excel\Практика excel\obj\Debug\Практика_excel.Form1.resources
+C:\Users\2\Desktop\Практика excel\Практика excel\obj\Debug\Практика_excel.Properties.Resources.resources
+C:\Users\2\Desktop\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.GenerateResource.cache
+C:\Users\2\Desktop\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.CoreCompileInputs.cache
+C:\Users\2\Desktop\Практика excel\Практика excel\obj\Debug\Практика excel.exe
+C:\Users\2\Desktop\Практика excel\Практика excel\obj\Debug\Практика excel.pdb
+C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\Практика excel.exe.config
+C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\Практика excel.exe
+C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\Практика excel.pdb
+C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\ExcelDataReader.dll
+C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\ExcelDataReader.pdb
+C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\ExcelDataReader.xml
+C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\2\Desktop\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.CopyComplete
