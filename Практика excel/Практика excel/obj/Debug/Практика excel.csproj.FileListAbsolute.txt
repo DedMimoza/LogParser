@@ -32,3 +32,20 @@ C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\Excel
 C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.pdb
 C:\Users\2\Desktop\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.xml
 C:\Users\2\Desktop\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.CopyComplete
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Debug\Практика excel.exe.config
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Debug\Практика excel.exe
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Debug\Практика excel.pdb
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.dll
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.dll
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.pdb
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.xml
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.pdb
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.xml
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.AssemblyReference.cache
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика_excel.Form1.resources
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика_excel.Properties.Resources.resources
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.GenerateResource.cache
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.CoreCompileInputs.cache
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.CopyComplete
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.exe
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.pdb

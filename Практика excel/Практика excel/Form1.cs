@@ -28,88 +28,10 @@ namespace Практика_excel
 		public DataTableCollection tableCollection = null;
 		public DataTable table = null;
 
-		private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				var fileContent = string.Empty;
-				var filePath = string.Empty;
+		
 
-				// openFileDialog1.InitialDirectory = "c:\\";
-				openFileDialog1.Filter = "xslx files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-				openFileDialog1.Title = "Открыть таблицу";
-				//openFileDialog1.FilterIndex = 2;
-				// openFileDialog1.RestoreDirectory = true;
-				if (openFileDialog1.ShowDialog() == DialogResult.OK)
-				{
-
-					filePath = openFileDialog1.FileName;
-
-
-					OpenExcel(filePath);
-					//var fileStream = openFileDialog1.OpenFile();
-
-				//    using (StreamReader reader = new StreamReader(fileStream))
-				//    {
-				//        fileContent = reader.ReadToEnd();
-				//    }
-				}
-				else
-				{
-					throw new Exception("Файл не выбран");
-				}
-				TextBox textBox1 = (TextBox)tabControl1.SelectedTab.Controls.OfType<TextBox>().First();
-				textBox1.Text = filePath;
-				table.Columns.RemoveAt(6);//удаляем лишние колонки
-				table.Columns.RemoveAt(6);//удаляем лишние колонки
-
-				UnloadingAlgorithm();
-				table.Columns.RemoveAt(4);//удаляем лишние колонки
-				table.Columns.RemoveAt(2);//удаляем лишние колонки
-				dataGridView1.DataSource = table;//вывод на окно
-				Algorithm();
-
-
-			}
-			catch(Exception ex)
-			{
-				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
-			}
-		}
-		public void OpenExcel(string path)//открытие файла
-		{
-			FileStream stream;
-
-			using (stream = File.Open(path, FileMode.Open, FileAccess.Read))
-			{
-				IExcelDataReader myReader = ExcelReaderFactory.CreateReader(stream);
-				DataSet db = myReader.AsDataSet(new ExcelDataSetConfiguration()
-				{
-					ConfigureDataTable = (x) => new ExcelDataTableConfiguration()
-					{
-						UseHeaderRow = true
-					}
-				});
-				tableCollection = db.Tables;
-				table = tableCollection[0];
-			}
-
-			//IExcelDataReader reader =ExcelReaderFactory.CreateReader(stream);
-
-			//DataSet db = reader.AsDataSet(new ExcelDataSetConfiguration()
-			//{
-			//	ConfigureDataTable = (x) => new ExcelDataTableConfiguration()
-			//	{
-			//		UseHeaderRow = true
-			//	}
-			//});
-			//tableCollection = db.Tables;
-			//table = tableCollection[0];//так как в нашем файле нет листов то присваиваем ему первый(0ой) лист
-
-
-			//Пример обращения к элементу textBox2.Text = table.Rows[1][5].ToString();
-		}
-		public void UnloadingAlgorithm() 
+        #region Algorithm
+        public void UnloadingAlgorithm() 
 		{
 			
 			string texttest = "Тест";
@@ -182,12 +104,49 @@ namespace Практика_excel
 			}
 		}
 
+        #endregion
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
+		#region OpenFile
 
-        private void button1_Click(object sender, EventArgs e)
+		public void OpenExcel(string path)//открытие файла
+		{
+			FileStream stream;
+
+			using (stream = File.Open(path, FileMode.Open, FileAccess.Read))
+			{
+				IExcelDataReader myReader = ExcelReaderFactory.CreateReader(stream);
+				DataSet db = myReader.AsDataSet(new ExcelDataSetConfiguration()
+				{
+					ConfigureDataTable = (x) => new ExcelDataTableConfiguration()
+					{
+						UseHeaderRow = true
+					}
+				});
+				tableCollection = db.Tables;
+				table = tableCollection[0];
+			}
+
+			//IExcelDataReader reader =ExcelReaderFactory.CreateReader(stream);
+
+			//DataSet db = reader.AsDataSet(new ExcelDataSetConfiguration()
+			//{
+			//	ConfigureDataTable = (x) => new ExcelDataTableConfiguration()
+			//	{
+			//		UseHeaderRow = true
+			//	}
+			//});
+			//tableCollection = db.Tables;
+			//table = tableCollection[0];//так как в нашем файле нет листов то присваиваем ему первый(0ой) лист
+
+
+			//Пример обращения к элементу textBox2.Text = table.Rows[1][5].ToString();
+		}
+
+		private void button1_Click(object sender, EventArgs e)
         {
 			try
 			{
@@ -235,6 +194,7 @@ namespace Практика_excel
 				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
 			}
 		}
+        #endregion
 
         private void label1_Click(object sender, EventArgs e)
         {
