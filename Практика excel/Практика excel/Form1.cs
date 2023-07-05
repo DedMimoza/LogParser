@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+using System.Net;
+
+
 //using Microsoft.Office.Interop.Excel;
 using ExcelDataReader;
 
@@ -44,6 +47,7 @@ namespace Практика_excel
 			string textendtest = "Попытка теста завершена и отправлена на оценку";
 			for (int i = 0; i <= table.Rows.Count-1; i++)
 			{
+				
 				if (texttest != table.Rows[i][4].ToString())//просеивание по слову Тест
 				{
 					table.Rows.RemoveAt(i);
@@ -51,11 +55,13 @@ namespace Практика_excel
 				}
 				else
 				{
+					
 					if (textbeginningtest == table.Rows[i][5].ToString() ||
 					    textendtest == table.Rows[i][5].ToString()) continue;
 					table.Rows.RemoveAt(i);
 					i--;
 				}
+				
 			}
 		}
 
@@ -65,9 +71,10 @@ namespace Практика_excel
 			for (int i = 0; i <= table.Rows.Count - 1; i++)
 			{
 				NameTastPosition.Add(table.Rows[i][1].ToString() + " | " + table.Rows[i][2].ToString() + " | " + table.Rows[i][3].ToString());//***
-				
+
 				if ( stds.Exists(x=> x.Name == table.Rows[i][1].ToString()))//проверка на наличие студента в списке (если он там есть, то...)
 				{
+					
 					int k =stds.FindIndex(x => x.Name == table.Rows[i][1].ToString());//находим его индекс в списке
 					stds[k].rows.Add(i);// закидываем по индексу строчку где она встречалась
 					if (stds[k].IP.Exists(x => x == table.Rows[i][4].ToString()))//и если его ip такой же как при первой встрече, то ничего не делаем
@@ -87,27 +94,45 @@ namespace Практика_excel
 					students.IP.Add(table.Rows[i][4].ToString());
 					stds.Add(students);//добавление студента при первой встрече
 				}
-				if (iPs.Exists(x=>x.ip==table.Rows[i][4].ToString()))// со списком ip анологично
-				{
-					int l = iPs.FindIndex(x => x.ip == table.Rows[i][4].ToString());
-					if (iPs[l].studens.Exists(x => x == table.Rows[i][1].ToString()))
-					{
 
-					}
-					else
-					{
-						iPs[l].studens.Add(table.Rows[i][1].ToString());
-					}
-				}
+
+
+				if (table.Rows[i][4].ToString() == "") continue;
+				if (iPs.Exists(x=>x.ip==ObrezIP(table.Rows[i][4].ToString())))// со списком ip анологично
+				{
+					int l = iPs.FindIndex(x => x.ip == ObrezIP(table.Rows[i][4].ToString()));
+                    if (!iPs[l].studens.Exists(x => x == table.Rows[i][1].ToString()))
+                    {
+                        iPs[l].studens.Add(table.Rows[i][1].ToString());
+                    }
+                    
+                }
 				else
 				{
 					IP iP = new IP();
-					iP.ip = table.Rows[i][4].ToString();
+					iP.ip = ObrezIP(table.Rows[i][4].ToString());
 					iP.studens.Add(table.Rows[i][1].ToString());
 					iPs.Add(iP);
 				}
 			}
 		}
+
+		private string ObrezIP(string Ips)
+        {
+			var tempip = IPAddress.Parse(Ips);
+			int k = 0;
+			string Iipp = "";
+			foreach (byte i in tempip.GetAddressBytes())
+			{
+				k++;
+				if (k == 3)
+					break;
+					Iipp += i.ToString() + ".";
+			}
+
+			return Iipp;
+		}
+
 		private void AlgoritmViolators()//***
         {
 			foreach(Students st in stds)
@@ -129,13 +154,13 @@ namespace Практика_excel
 
 						endtime = DateTime.Parse(table.Rows[i][0].ToString());
 						starttime = DateTime.Parse(table.Rows[k][0].ToString());
-						testtime = DateTime.Parse("00:01:30");
+						testtime = DateTime.Parse("00:02:00");
 						//DateTime endstarttime = new DateTime();
 						string ensttime = (endtime - starttime).ToString();
 						//endstarttime = DateTime.Parse((endtime - starttime).ToString());
 						if (endtime.Subtract(starttime).TotalSeconds < testtime.TimeOfDay.TotalSeconds)
                         {
-							st.tests.Add(table.Rows[k][2].ToString() + " - " + table.Rows[i][2].ToString());
+							st.tests.Add($"[{starttime}] - [{ endtime}]: " +table.Rows[i][2].ToString());
                         }
 						
 						NameTastPosition[k] = null;
@@ -144,6 +169,78 @@ namespace Практика_excel
                     
                 }
 				
+            }
+
+
+			AddStudentsToTree();
+			DisplayBadIps();
+        }
+
+		
+
+
+		void AddStudentsToTree()
+        {
+			foreach(Students st in stds)
+            {
+
+				
+				if (st.Name == "Администратор системы") continue;
+				List<string> ipss = new List<string>();
+				foreach (string Ips in st.IP)
+				{
+					Debug.WriteLine(Ips);
+					Debug.WriteLine(st.Name);
+					var tempip = IPAddress.Parse(Ips);
+					int k = 0;
+					string Iipp = "";
+					foreach (byte i in tempip.GetAddressBytes())
+					{
+						k++;
+						if (k == 3)
+							break;
+
+						Iipp += i.ToString() + ".";
+
+					}
+					if (!ipss.Exists(x => x == Iipp))
+					{
+						ipss.Add(Iipp);
+					}
+				}
+
+				if (st.tests.Count > 1 || ipss.Count > 3)
+				{
+					var a = treeView1.Nodes.Add(st.Name);
+					var IPnode = a.Nodes.Add("IPs");
+					var TestNode = a.Nodes.Add("Тесты менее чем за 2 минуты");
+					foreach (var n in ipss)
+                    {
+						IPnode.Nodes.Add(n);
+                    }
+					foreach(var Test in st.tests)
+                    {
+						TestNode.Nodes.Add(Test);
+                    }
+
+				}
+				
+            }
+        }
+
+
+		void DisplayBadIps()
+        {
+			foreach(var ip in iPs)
+            {
+				if(ip.studens.Count > 4)
+                {
+					var BadIpNode = treeView2.Nodes.Add(ip.ip);
+					foreach(var k in ip.studens)
+                    {
+						BadIpNode.Nodes.Add(k);
+                    }
+                }
             }
         }
 
