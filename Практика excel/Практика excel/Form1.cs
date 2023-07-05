@@ -18,10 +18,10 @@ using ExcelDataReader;
 
 namespace Практика_excel
 {
-	public partial class Form1 : Form
+	public partial class LogParser : Form
 	{
 
-		public Form1()
+		public LogParser()
 		{
 			InitializeComponent();
 			
@@ -125,7 +125,7 @@ namespace Практика_excel
 			foreach (byte i in tempip.GetAddressBytes())
 			{
 				k++;
-				if (k == 3)
+				if (k == 4)
 					break;
 					Iipp += i.ToString() + ".";
 			}
@@ -135,7 +135,29 @@ namespace Практика_excel
 
 		private void AlgoritmViolators()//***
         {
-			foreach(Students st in stds)
+			var TextMin = comboBox1.Text;
+			var mins = "";
+			if (comboBox1.Text != "")
+			{
+				mins = TextMin.Replace("min", "");
+			}
+			else
+			{
+				mins = "2";
+			}
+
+			var TextIps = comboBox2.Text;
+			var ipss = "";
+			if (comboBox1.Text == "")
+			{
+				ipss = "4";
+			}
+            else
+            {
+				ipss = TextIps;
+            }
+
+			foreach (Students st in stds)
             {
 				
 				for(int l=0; l<st.rows.Count;l++)
@@ -158,7 +180,8 @@ namespace Практика_excel
 						//DateTime endstarttime = new DateTime();
 						string ensttime = (endtime - starttime).ToString();
 						//endstarttime = DateTime.Parse((endtime - starttime).ToString());
-						if (endtime.Subtract(starttime).TotalSeconds < testtime.TimeOfDay.TotalSeconds)
+						
+						if (endtime.Subtract(starttime).TotalSeconds < Convert.ToDouble(mins)*60)
                         {
 							st.tests.Add($"[{starttime}] - [{ endtime}]: " +table.Rows[i][2].ToString());
                         }
@@ -172,14 +195,14 @@ namespace Практика_excel
             }
 
 
-			AddStudentsToTree();
-			DisplayBadIps();
+			AddStudentsToTree(mins);
+			DisplayBadIps(Convert.ToInt32(ipss));
         }
 
 		
 
 
-		void AddStudentsToTree()
+		void AddStudentsToTree(string mins)
         {
 			foreach(Students st in stds)
             {
@@ -189,15 +212,14 @@ namespace Практика_excel
 				List<string> ipss = new List<string>();
 				foreach (string Ips in st.IP)
 				{
-					Debug.WriteLine(Ips);
-					Debug.WriteLine(st.Name);
+				
 					var tempip = IPAddress.Parse(Ips);
 					int k = 0;
 					string Iipp = "";
 					foreach (byte i in tempip.GetAddressBytes())
 					{
 						k++;
-						if (k == 3)
+						if (k == 4)
 							break;
 
 						Iipp += i.ToString() + ".";
@@ -212,8 +234,8 @@ namespace Практика_excel
 				if (st.tests.Count > 1 || ipss.Count > 3)
 				{
 					var a = treeView1.Nodes.Add(st.Name);
-					var IPnode = a.Nodes.Add("IPs");
-					var TestNode = a.Nodes.Add("Тесты менее чем за 2 минуты");
+					var IPnode = a.Nodes.Add($"IP (Ammount of IPs: {ipss.Count})");
+					var TestNode = a.Nodes.Add($"Тесты менее чем за {mins} минуты");
 					foreach (var n in ipss)
                     {
 						IPnode.Nodes.Add(n);
@@ -229,13 +251,13 @@ namespace Практика_excel
         }
 
 
-		void DisplayBadIps()
+		void DisplayBadIps(int colv)
         {
 			foreach(var ip in iPs)
             {
-				if(ip.studens.Count > 4)
+				if(ip.studens.Count >= colv)
                 {
-					var BadIpNode = treeView2.Nodes.Add(ip.ip);
+					var BadIpNode = treeView2.Nodes.Add($"{ip.ip}; Users from this IP : {ip.studens.Count}");
 					foreach(var k in ip.studens)
                     {
 						BadIpNode.Nodes.Add(k);

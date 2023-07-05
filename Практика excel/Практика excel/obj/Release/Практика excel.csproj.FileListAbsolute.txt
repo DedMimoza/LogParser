@@ -1,0 +1,17 @@
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Release\Практика excel.exe.config
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Release\Практика excel.exe
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Release\Практика excel.pdb
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Release\ExcelDataReader.DataSet.dll
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Release\ExcelDataReader.dll
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Release\ExcelDataReader.pdb
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Release\ExcelDataReader.xml
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Release\ExcelDataReader.DataSet.pdb
+D:\Work\Logs\LogParser\Практика excel\Практика excel\bin\Release\ExcelDataReader.DataSet.xml
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Release\Практика excel.csproj.AssemblyReference.cache
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Release\Практика_excel.Properties.Resources.resources
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Release\Практика excel.csproj.GenerateResource.cache
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Release\Практика excel.csproj.CoreCompileInputs.cache
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Release\Практика excel.csproj.CopyComplete
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Release\Практика excel.exe
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Release\Практика excel.pdb
+D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Release\Практика_excel.LogParser.resources
