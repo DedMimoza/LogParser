@@ -28,10 +28,15 @@ namespace Практика_excel
 		public DataTableCollection tableCollection = null;
 		public DataTable table = null;
 
-		
+		List<Students> stds = new List<Students>();// список студентов
+		List<IP> iPs = new List<IP>();//создаю список ip
+		List<string> NameTastPosition = new List<string>();//список cтудентов + назвние теста + в каком состоянии тест (Попытка 1)
+														   //удалить надо будет если не получиться (помечу все что с ним связанно ***)
 
-        #region Algorithm
-        public void UnloadingAlgorithm() 
+		List<Students> Violators = new List<Students>();// список нарушитлей (возможно не приготиться но на всякий)
+
+		#region Algorithm
+		public void UnloadingAlgorithm() 
 		{
 			
 			string texttest = "Тест";
@@ -54,13 +59,13 @@ namespace Практика_excel
 			}
 		}
 
-		private void Algorithm() 
+		private void Algorithm()//алгоритм для выделения студента и его использованных IP и наоборот 
 		{
-			List<Students> stds = new List<Students>();// список студентов
-			List<IP> iPs = new List<IP>();//создаю список ip 
+			 
 			for (int i = 0; i <= table.Rows.Count - 1; i++)
 			{
-				
+				NameTastPosition.Add(table.Rows[i][1].ToString() + " | " + table.Rows[i][2].ToString() + " | " + table.Rows[i][3].ToString());//***
+				treeView1.Nodes.Add(NameTastPosition[i]);//***
 				if ( stds.Exists(x=> x.Name == table.Rows[i][1].ToString()))//проверка на наличие студента в списке (если он там есть, то...)
 				{
 					int k =stds.FindIndex(x => x.Name == table.Rows[i][1].ToString());//находим его индекс в списке
@@ -103,13 +108,42 @@ namespace Практика_excel
 				}
 			}
 		}
-
-        #endregion
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+		private void AlgoritmViolators()//***
         {
-
+			foreach(Students st in stds)
+            {
+				
+				foreach(int i in st.rows)
+                {
+					if (table.Rows[i][3].ToString()== "Попытка теста завершена и отправлена на оценку")
+                    {
+						DateTime starttime = new DateTime();
+						DateTime endtime = new DateTime();
+						DateTime testtime = new DateTime();
+						int k = NameTastPosition.IndexOf(table.Rows[i][1].ToString() + " | " + table.Rows[i][2].ToString() + " | " + "Начата попытка теста");
+						endtime = DateTime.Parse(table.Rows[i][0].ToString());
+						starttime = DateTime.Parse(table.Rows[k][0].ToString());
+						testtime = DateTime.Parse("00:01:30");
+						DateTime endstarttime = new DateTime();
+						endstarttime = DateTime.Parse((endtime - starttime).ToString());
+						if (DateTime.Parse((endtime - starttime).ToString()) < testtime)
+                        {
+							st.tests.Add(table.Rows[k][2].ToString() + " - " + table.Rows[i][2].ToString());
+                        }
+						
+						
+					}
+                    else
+                    {
+						textBox2.Text = "Error";
+                    }
+                }
+				
+            }
         }
+
+		#endregion
+
 		#region OpenFile
 
 		public void OpenExcel(string path)//открытие файла
@@ -184,9 +218,11 @@ namespace Практика_excel
 				UnloadingAlgorithm();
 				table.Columns.RemoveAt(4);//удаляем лишние колонки
 				table.Columns.RemoveAt(2);//удаляем лишние колонки
-				dataGridView1.DataSource = table;//вывод на окно
+				dataGridView1.DataSource = table;//вывод на окно 
+				//
+				
 				Algorithm();
-
+				//AlgoritmViolators();
 
 			}
 			catch (Exception ex)
@@ -196,10 +232,6 @@ namespace Практика_excel
 		}
         #endregion
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 	
 }

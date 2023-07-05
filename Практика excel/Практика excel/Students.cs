@@ -11,5 +11,6 @@ namespace Практика_excel
         public string Name { get; set; }
         public List<string> IP = new List<string>();
         public List<int> rows = new List<int>();
+        public List<string> tests = new List<string>();
     }
 }

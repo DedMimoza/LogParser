@@ -49,3 +49,20 @@ D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\�
 D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.CopyComplete
 D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.exe
 D:\Work\Logs\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.pdb
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\bin\Debug\Практика excel.exe.config
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\bin\Debug\Практика excel.exe
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\bin\Debug\Практика excel.pdb
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.dll
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.pdb
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.xml
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.AssemblyReference.cache
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\obj\Debug\Практика_excel.Form1.resources
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\obj\Debug\Практика_excel.Properties.Resources.resources
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.GenerateResource.cache
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.CoreCompileInputs.cache
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.csproj.CopyComplete
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.exe
+C:\Users\Эрчим Иркитов\Desktop\git\LogParser\Практика excel\Практика excel\obj\Debug\Практика excel.pdb
