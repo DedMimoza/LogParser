@@ -65,7 +65,7 @@ namespace Практика_excel
 			for (int i = 0; i <= table.Rows.Count - 1; i++)
 			{
 				NameTastPosition.Add(table.Rows[i][1].ToString() + " | " + table.Rows[i][2].ToString() + " | " + table.Rows[i][3].ToString());//***
-				treeView1.Nodes.Add(NameTastPosition[i]);//***
+				
 				if ( stds.Exists(x=> x.Name == table.Rows[i][1].ToString()))//проверка на наличие студента в списке (если он там есть, то...)
 				{
 					int k =stds.FindIndex(x => x.Name == table.Rows[i][1].ToString());//находим его индекс в списке
@@ -113,30 +113,35 @@ namespace Практика_excel
 			foreach(Students st in stds)
             {
 				
-				foreach(int i in st.rows)
+				for(int l=0; l<st.rows.Count;l++)
                 {
+					int i = st.rows[l]; 
 					if (table.Rows[i][3].ToString()== "Попытка теста завершена и отправлена на оценку")
                     {
 						DateTime starttime = new DateTime();
 						DateTime endtime = new DateTime();
 						DateTime testtime = new DateTime();
 						int k = NameTastPosition.IndexOf(table.Rows[i][1].ToString() + " | " + table.Rows[i][2].ToString() + " | " + "Начата попытка теста");
+						if (k == -1)
+                        {
+							continue;
+                        }
+
 						endtime = DateTime.Parse(table.Rows[i][0].ToString());
 						starttime = DateTime.Parse(table.Rows[k][0].ToString());
 						testtime = DateTime.Parse("00:01:30");
-						DateTime endstarttime = new DateTime();
-						endstarttime = DateTime.Parse((endtime - starttime).ToString());
-						if (DateTime.Parse((endtime - starttime).ToString()) < testtime)
+						//DateTime endstarttime = new DateTime();
+						string ensttime = (endtime - starttime).ToString();
+						//endstarttime = DateTime.Parse((endtime - starttime).ToString());
+						if (endtime.Subtract(starttime).TotalSeconds < testtime.TimeOfDay.TotalSeconds)
                         {
 							st.tests.Add(table.Rows[k][2].ToString() + " - " + table.Rows[i][2].ToString());
                         }
 						
+						NameTastPosition[k] = null;
 						
 					}
-                    else
-                    {
-						textBox2.Text = "Error";
-                    }
+                    
                 }
 				
             }
@@ -164,17 +169,6 @@ namespace Практика_excel
 				table = tableCollection[0];
 			}
 
-			//IExcelDataReader reader =ExcelReaderFactory.CreateReader(stream);
-
-			//DataSet db = reader.AsDataSet(new ExcelDataSetConfiguration()
-			//{
-			//	ConfigureDataTable = (x) => new ExcelDataTableConfiguration()
-			//	{
-			//		UseHeaderRow = true
-			//	}
-			//});
-			//tableCollection = db.Tables;
-			//table = tableCollection[0];//так как в нашем файле нет листов то присваиваем ему первый(0ой) лист
 
 
 			//Пример обращения к элементу textBox2.Text = table.Rows[1][5].ToString();
@@ -210,7 +204,7 @@ namespace Практика_excel
 				{
 					throw new Exception("Файл не выбран");
 				}
-				TextBox textBox1 = (TextBox)tabControl1.SelectedTab.Controls.OfType<TextBox>().First();
+				//TextBox textBox1 = (TextBox)tabControl1.SelectedTab.Controls.OfType<TextBox>().First();
 				textBox1.Text = filePath;
 				table.Columns.RemoveAt(6);//удаляем лишние колонки
 				table.Columns.RemoveAt(6);//удаляем лишние колонки
@@ -222,7 +216,7 @@ namespace Практика_excel
 				//
 				
 				Algorithm();
-				//AlgoritmViolators();
+				AlgoritmViolators();
 
 			}
 			catch (Exception ex)

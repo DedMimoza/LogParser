@@ -138,7 +138,7 @@ namespace Практика_excel
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 409);
+            this.textBox1.Location = new System.Drawing.Point(10, 409);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(529, 22);
             this.textBox1.TabIndex = 7;
